@@ -1,0 +1,29 @@
+%% Load Data
+load 'SampleDataSets/StatisticalAnalysis.mat'
+
+%% Power Analysis
+sampleData = PowerAnalysisData;
+sampleData = sampleData.*44./0.75;
+
+%Enter desired speed in [cm/s]
+h0_mean = 44;
+
+experimental_mean = mean(sampleData);
+experimental_std = std(sampleData);
+
+numbertrialsexperimental  = sampsizepwr('t', [h0_mean experimental_std], experimental_mean);
+
+
+%% Statistical Analysis Setup
+
+%Enter name of measured dataset
+measuredData_time = ;
+
+phantomDiameter = 17;   % in cm
+% Converting 
+measuredData = (measuredData_time/10).*(2*3.14159265).*(3.14159265 * phantomDiameter);
+
+% Enter hypothesized mean
+hypothesized_mean = 44;
+
+h = ttest(measuredData, hypothesized_mean);

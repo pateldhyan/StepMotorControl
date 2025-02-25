@@ -48,7 +48,7 @@ def main():
     velocityLimit = stepper1.getVelocityLimit()
 
     #Output set speed
-    print("Velocity Limit: " + str(velocityLimit))
+    print("Rotational Speed: " + str(velocityLimit) + "revolutions/second")
     # currVel = stepper1.getVelocity()
     # print("Current Velocity: " + str(currVel))
 
